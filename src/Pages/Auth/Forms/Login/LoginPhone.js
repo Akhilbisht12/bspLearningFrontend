@@ -10,15 +10,16 @@ import Google_logo from "../../../../components/UI/Logo/google";
 import GoogleLogin from "react-google-login";
 import SumbitButton from "../../../../components/UI/Buttons/SumbitButton";
 import Alert from "../alert";
+import logoBhim from "../../../../assets/Images/bhim.png";
 
 class LoginPhone extends Component {
   state = {
     Form: {
-      phone: {
-        placeholder: "Phone Number",
+      email: {
+        placeholder: "Enter Email address",
         value: "",
         valid: false,
-        type: "number",
+        type: "text",
         error: " ",
         msg: "",
 
@@ -28,21 +29,21 @@ class LoginPhone extends Component {
         touched: false,
       },
 
-    //   password: {
-    //     placeholder: "Password",
-    //     value: "",
-    //     valid: false,
-    //     type: "password",
-    //     error: " ",
-    //     msg: "",
+      password: {
+        placeholder: "Password",
+        value: "",
+        valid: false,
+        type: "password",
+        error: " ",
+        msg: "",
 
-    //     validation: {
-    //       required: true,
-    //       minLength: 5,
-    //       maxLength: 18,
-    //     },
-    //     touched: false,
-    //   },
+        validation: {
+          required: true,
+          minLength: 5,
+          maxLength: 18,
+        },
+        touched: false,
+      },
     },
     loading: false,
 
@@ -117,20 +118,20 @@ class LoginPhone extends Component {
     }
 
     // msg error for password
-    // if (inputIdentifier === "password" && !updatedElement.valid) {
-    //   updatedElement.error = "At least 5 characters and at most 18";
-    //   updatedElement.msg = "";
-    // }
-    // if (inputIdentifier === "password" && updatedElement.valid) {
-    //   updatedElement.error = "";
-    //   updatedElement.msg = "valid";
-    // }
+    if (inputIdentifier === "password" && !updatedElement.valid) {
+      updatedElement.error = "At least 5 characters and at most 18";
+      updatedElement.msg = "";
+    }
+    if (inputIdentifier === "password" && updatedElement.valid) {
+      updatedElement.error = "";
+      updatedElement.msg = "valid";
+    }
     // msg errors for email
-    if (inputIdentifier === "phone" && !updatedElement.valid) {
+    if (inputIdentifier === "email" && !updatedElement.valid) {
       updatedElement.error = "Invalid format";
       updatedElement.msg = "";
     }
-    if (inputIdentifier === "phone" && updatedElement.valid) {
+    if (inputIdentifier === "email" && updatedElement.valid) {
       updatedElement.error = "";
       updatedElement.msg = "valid";
     }
@@ -169,29 +170,28 @@ class LoginPhone extends Component {
         formData[formElement] = this.state.Form[formElement].value;
       }
 
-      localStorage.setItem("phone", this.state.Form["phone"].value);
+      localStorage.setItem("email", this.state.Form["email"].value);
 
       AuthService.login(formData)
         .then((response) => {
           console.log("Response:", response);
 
           this.AlertError("Successfully Logged in", "success");
-          localStorage.setItem("email", response.data.email)
-
+          localStorage.setItem("email", response.data.email);
           localStorage.setItem("user", response.data.access_token);
           localStorage.setItem("ref_token", response.data.referesh_token);
           localStorage.setItem("userId", response.data.userId);
           localStorage.setItem("userName", response.data.username);
 
           this.setState({ loading: false });
-          this.setState({ redirect: "/HomePage" });
+          this.setState({ redirect: "/dashboard" });
         })
 
         .catch((error) => {
           console.log(error.response);
           this.setState({ loading: false });
           this.AlertError(error.response.data.message, "danger");
-          localStorage.setItem("email", error.response.data.email)
+          localStorage.setItem("email", error.response.data.email);
           if (error.response.data.redirect) {
             this.setState({ redirect: "signup/otp" });
           }
@@ -270,14 +270,17 @@ class LoginPhone extends Component {
           alignItems: "center",
           padding: "1rem",
         }}
-      >
-        <img
-          src="https://www.babushahi.com/pae2017/parties/party_logo/bsp.png"
-          width={100}
-          style={{ borderRadius: "50%" }}
-        />
-        <p style={{ fontSize: "1rem", fontWeight: "bolder" }}>
-          बहुजन समाज पार्टी
+      >        
+        <img src={logoBhim} width={100} style={{ borderRadius: "50%" }} />
+        <p
+          style={{
+            color: "white",
+            fontSize: "1rem",
+            width: "auto",
+            textAlign: "center",
+          }}
+        >
+          BHIM BATA APP USER REGISTRATION
         </p>
       </div>
     );
@@ -331,7 +334,7 @@ class LoginPhone extends Component {
     );
 
     return (
-      <Layout>
+      <Layout style={{ backgroundColor: "#000052" }}>
         {alertContent}
         <div className="SideContent">
           <MainPage

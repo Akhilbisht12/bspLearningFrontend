@@ -19,21 +19,36 @@ import Stripe from "./Pages/payment/StripeContainer";
 import Chat from "./Pages/Chat/Chat";
 import SignupBSP from "./Pages/Auth/Forms/Signup/SignupBSP";
 import SignUpwithPhone from "./Pages/Auth/Forms/Signup/SignUpwithPhone";
-import LoginPhone from './Pages/Auth/Forms/Login/LoginPhone'
+import NewLogin from "./Pages/Auth/Forms/Login/NewLogin";
+import Swot from "./Pages/forms/Swot";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import NewSignup from "./Pages/Auth/Forms/Signup/NewSignup";
+import FormPage from "./Pages/forms/FormPage";
+import Influencer from "./Pages/forms/Influencer";
+import Meetings from "./Pages/meetings/Meetings";
+import whyRSP from "./Pages/whyRSP/whyRSP";
+import Badges from "./Pages/Badges/Badges";
+import OnBoarding from "./Pages/OnBoarding/OnBoarding";
+import "./App.css";
+import WhyBahujan from "./Pages/whyRSP/WhyBahujan";
+import NotFound from "./Pages/NotFound";
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <Switch>
-          {/* <Route path="/signupOtp" component={SignUpwithPhone} /> */}
+          <Route path="/signupOtp" component={SignUpwithPhone} />
           {/* <Route path="/signup" exact component={Signup} /> */}
-          <Route path="/login" component={LoginPhone} />
+          <Route path="/login" component={NewLogin} />
           <Route path="/signup/otp" component={Otp} />
           <Route path="/forgotpasswordemail" component={EmailVerify} />
           <Route path="/ForgotPasswordotp" component={ForgotPasswordotp} />
           <Route path="/ResetPassword" component={ResetPassword} />
-          <Route path="/signup" component={SignupBSP} />
+          <Route path="/signup" component={NewSignup} />
+          <Route path="/onboarding" component={OnBoarding} />
+          <Route path="/forms" component={FormPage} />
 
+          <Route path="/dashboard" exact component={Dashboard} />
           <Route
             path="/home/:CourseName"
             exact
@@ -64,7 +79,8 @@ class App extends Component {
               <Stripe key={props.location.pathname} {...props} />
             )}
           />
-
+          <Route path="/swot" component={Swot} />
+          <Route path="/influencer" component={Influencer} />
           <Route path="/Teacher" component={TeacherPage} />
           <Route
             path="/TeacherVideos"
@@ -73,12 +89,21 @@ class App extends Component {
 
           <Route path="/TeacherHome" component={TeacherHomePage} />
           <Route path="/TeacherEdit" component={TeacherEdit} />
-
-          {/* chat room for teacher and student */}
-
-          <Route path="/chat" component={Chat} />
-          {/* <Redirect to="/signupOtp" /> */}
-          <Redirect to="/home/all" />
+          <Route path="/meetings" component={Meetings} />
+          <Route path="/whyrsp" component={whyRSP} />
+          <Route path="/whybahujan" component={WhyBahujan} />
+          <Route path="/badges" component={Badges} />
+          <Route
+            path="/"
+            component={localStorage.getItem("user") ? Dashboard : NewLogin}
+          />
+          <Route path="*" exact component={NotFound} />
+          {localStorage.getItem("user") ? (
+            <Redirect to="/dashboard" />
+          ) : (
+            <Redirect to="/login" />
+          )}
+          {/* <Redirect to="/home/all" /> */}
         </Switch>
       </BrowserRouter>
     );
