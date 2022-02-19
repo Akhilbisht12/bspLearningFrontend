@@ -4,8 +4,10 @@ import AuthServices from "../../ApiServices/auth.service";
 import Layout from "../../components/Layout/Layout";
 import BottomTabs from "../../components/Layout/BottomTabs";
 import "./Forms.css";
+import { useTranslation } from "react-i18next";
 
 const Swot = () => {
+  const { t } = useTranslation(["forms"]);
   const [toastShow, setToastShow] = useState(false);
   const [formdata, setformdata] = useState({
     village: "",
@@ -44,9 +46,9 @@ const Swot = () => {
           background: "#15181fc",
         }}
       >
-        <h4 className="heading">SHNOW-SWOT analysis for your village/ward</h4>
+        <h4 className="heading">{t("title")}</h4>
         <div className="inputs">
-          <label htmlFor="village">Village/ward</label>
+          <label htmlFor="village">{t("village")}</label>
           <input
             name="village"
             className="inputElement"
@@ -57,7 +59,7 @@ const Swot = () => {
           />
         </div>
         <div className="inputs">
-          <label htmlFor="village">Strengths</label>
+          <label htmlFor="strength">{t("strength")}</label>
           <input
             className="inputElement"
             value={formdata.strengths}
@@ -67,7 +69,7 @@ const Swot = () => {
           />
         </div>
         <div className="inputs">
-          <label htmlFor="village">Weaknesses</label>
+          <label htmlFor="weakness">{t("weakness")}</label>
           <input
             className="inputElement"
             value={formdata.weaknesses}
@@ -77,7 +79,7 @@ const Swot = () => {
           />
         </div>
         <div className="inputs">
-          <label htmlFor="village">Opportunities</label>
+          <label htmlFor="opportunities">{t("opportunities")}</label>
           <input
             className="inputElement"
             value={formdata.opportunities}
@@ -87,7 +89,7 @@ const Swot = () => {
           />
         </div>
         <div className="inputs">
-          <label htmlFor="village">Threats</label>
+          <label htmlFor="threats">{t("threats")}</label>
           <input
             className="inputElement"
             value={formdata.threats}
@@ -97,14 +99,14 @@ const Swot = () => {
           />
         </div>
         {toastShow == true && (
-          <span className="badge badge-success">Success</span>
+          <span className="badge badge-success">{t("success")}</span>
         )}
         <button
           className="formBtn"
           style={{ marginBottom: "5rem" }}
           onClick={handleswotsubmit}
         >
-          Submit
+          {t("submit")}
         </button>
       </main>
       <BottomTabs />

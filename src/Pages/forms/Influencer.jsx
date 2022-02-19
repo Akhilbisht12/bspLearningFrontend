@@ -4,8 +4,10 @@ import AuthServices from "../../ApiServices/auth.service";
 import Layout from "../../components/Layout/Layout";
 import BottomTabs from "../../components/Layout/BottomTabs";
 import "./Forms.css";
+import { useTranslation } from "react-i18next";
 
 const Influencer = () => {
+  const { t } = useTranslation(["forms"]);
   const [toastShow, setToastShow] = useState(false);
   const [formdata, setformdata] = useState({
     name: "",
@@ -46,9 +48,9 @@ const Influencer = () => {
           background: "#15181fc",
         }}
       >
-        <h4 className="heading">Neutral Influencers</h4>
+        <h4 className="heading">{t("neutral_title")}</h4>
         <div className="inputs">
-          <label htmlFor="village">Name</label>
+          <label htmlFor="village">{t("name")}</label>
           <input
             name="village"
             className="inputElement"
@@ -57,7 +59,7 @@ const Influencer = () => {
           />
         </div>
         <div className="inputs">
-          <label htmlFor="village">Phone Number</label>
+          <label htmlFor="village">{t("phone")}</label>
           <input
             className="inputElement"
             value={formdata.phone}
@@ -67,7 +69,7 @@ const Influencer = () => {
           />
         </div>
         <div className="inputs">
-          <label htmlFor="village">Occupation</label>
+          <label htmlFor="village">{t("occupation")}</label>
           <input
             className="inputElement"
             value={formdata.occupation}
@@ -77,7 +79,7 @@ const Influencer = () => {
           />
         </div>
         <div className="inputs">
-          <label htmlFor="village">District</label>
+          <label htmlFor="village">{t("district")}</label>
           <input
             className="inputElement"
             value={formdata.district}
@@ -87,7 +89,7 @@ const Influencer = () => {
           />
         </div>
         <div className="inputs">
-          <label htmlFor="village">Mandal</label>
+          <label htmlFor="village">{t("mandal")}</label>
           <input
             className="inputElement"
             value={formdata.mandal}
@@ -97,7 +99,7 @@ const Influencer = () => {
           />
         </div>
         <div className="inputs">
-          <label htmlFor="village">Village</label>
+          <label htmlFor="village">{t("village")}</label>
           <input
             className="inputElement"
             value={formdata.village}
@@ -107,14 +109,14 @@ const Influencer = () => {
           />
         </div>
         {toastShow == true && (
-          <span className="badge badge-success">Success</span>
+          <span className="badge badge-success">{t("success")}</span>
         )}
         <button
           className="formBtn"
           style={{ marginBottom: "4rem" }}
           onClick={handleinfluencersubmit}
         >
-          Submit
+          {t("submit")}
         </button>
       </main>
       <BottomTabs />

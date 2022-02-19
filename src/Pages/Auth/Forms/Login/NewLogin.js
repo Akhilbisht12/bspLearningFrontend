@@ -4,8 +4,10 @@ import logoBhim from "../../../../assets/Images/bhim.png";
 import authService from "../../../../ApiServices/auth.service";
 import { Link, useHistory } from "react-router-dom";
 import Alert from "../alert";
+import { useTranslation } from "react-i18next";
 
 const NewLogin = () => {
+  const { t } = useTranslation(["common"]);
   const history = useHistory();
   const [loginInfo, setloginInfo] = useState({
     identity: "",
@@ -82,7 +84,7 @@ const NewLogin = () => {
         >
           <input
             className="siteInput"
-            placeholder="Email or Phone"
+            placeholder={t("email")}
             required
             value={loginInfo.identity}
             onChange={(e) =>
@@ -93,7 +95,7 @@ const NewLogin = () => {
             }
           />
           <input
-            placeholder="Password"
+            placeholder={t("password")}
             type="password"
             className="siteInput"
             required
@@ -103,20 +105,22 @@ const NewLogin = () => {
             }
           />
           <Link className="my-1" to="/forgotpasswordemail">
-            <p className="forgot-password flex-end my-5"> Forgot Password?</p>
+            <p className="forgot-password flex-end my-5">
+              {t("forgot-password")}?
+            </p>
           </Link>
           <input
             className="sitebtnInv"
             disabled={Loading}
             type="submit"
-            value="Login"
+            value={t("login")}
           />
           {Loading ? <div className="spinner-grow text-primary" /> : null}
         </form>
         <div className="mt-5 d-flex flex-column align-items-center justify-content-center">
-          <p className="text-white m-0">NEW USER</p>
+          <p className="m-0">{t("new-user")}</p>
           <Link className="text-center fw-bold" style={styles} to="/onboarding">
-            REGISTER HERE
+            {t("register-here")}
           </Link>
         </div>
       </div>

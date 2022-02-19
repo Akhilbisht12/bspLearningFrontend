@@ -3,6 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import { formImg } from "../../assets/Images/form_img.png";
 import BottomTabs from "../../components/Layout/BottomTabs";
 import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import authService from "../../ApiServices/auth.service";
 
 const FormPage = () => {
@@ -14,20 +15,22 @@ const FormPage = () => {
       setcoursesWatched(response.data.count);
     });
   }, []);
+
+  const { t } = useTranslation(["forms"]);
   return (
     <Layout>
       <div className="main__from-wrapper">
         <div className="img__box"></div>
         <div className={"btn__wrapper "}>
           <button className="formBtn" onClick={() => history.push("/swot")}>
-            SWOT Analysis Form
+            {t("analysis form")}
           </button>
           <button
             className="formBtn"
             onClick={() => history.push("/influencer")}
           >
             {" "}
-            Neutral Influencer Form
+            {t("neutral form")}{" "}
           </button>
         </div>
         <div className={`btn__wrapper `}>
