@@ -19,11 +19,14 @@ const FormPage = () => {
       <div className="main__from-wrapper">
         <div className="img__box"></div>
         <div className={"btn__wrapper "}>
-          <button className="formBtn" onClick={() => history.push("/swot")}>
+          <button
+            className="sitebtnInv my-2"
+            onClick={() => history.push("/swot")}
+          >
             SWOT Analysis Form
           </button>
           <button
-            className="formBtn"
+            className="sitebtnInv my-2"
             onClick={() => history.push("/influencer")}
           >
             {" "}
