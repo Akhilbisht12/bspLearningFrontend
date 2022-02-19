@@ -4,8 +4,10 @@ import AuthServices from "../../ApiServices/auth.service";
 import Layout from "../../components/Layout/Layout";
 import BottomTabs from "../../components/Layout/BottomTabs";
 import "./Forms.css";
+import { useTranslation } from "react-i18next";
 
 const Swot = () => {
+  const { t } = useTranslation(["forms"]);
   const [toastShow, setToastShow] = useState(false);
   const [formdata, setformdata] = useState({
     village: "",
@@ -53,59 +55,70 @@ const Swot = () => {
           backgroundColor: "white",
         }}
       >
-        <h4 className="text-center mb-5 mt-3">
-          SHNOW-SWOT analysis for your village/ward
-        </h4>
-        <input
-          name="village"
-          placeholder="Village/Ward"
-          className="siteInput my-2"
-          value={formdata.village}
-          onChange={(e) =>
-            setformdata({ ...formdata, village: e.target.value })
-          }
-        />
-        <input
-          className="siteInput my-2"
-          placeholder="Strengths"
-          value={formdata.strengths}
-          onChange={(e) =>
-            setformdata({ ...formdata, strengths: e.target.value })
-          }
-        />
-        <input
-          className="siteInput my-2"
-          placeholder="Weaknesses"
-          value={formdata.weaknesses}
-          onChange={(e) =>
-            setformdata({ ...formdata, weaknesses: e.target.value })
-          }
-        />
-        <input
-          className="siteInput my-2"
-          value={formdata.opportunities}
-          placeholder="Opportunities"
-          onChange={(e) =>
-            setformdata({ ...formdata, opportunities: e.target.value })
-          }
-        />
-        <input
-          className="siteInput my-2"
-          placeholder="Threats"
-          value={formdata.threats}
-          onChange={(e) =>
-            setformdata({ ...formdata, threats: e.target.value })
-          }
-        />
+
+        <h4 className="heading">{t("title")}</h4>
+        <div className="inputs">
+          <label htmlFor="village">{t("village")}</label>
+          <input
+            name="village"
+            className="inputElement"
+            value={formdata.village}
+            onChange={(e) =>
+              setformdata({ ...formdata, village: e.target.value })
+            }
+          />
+        </div>
+        <div className="inputs">
+          <label htmlFor="strength">{t("strength")}</label>
+          <input
+            className="inputElement"
+            value={formdata.strengths}
+            onChange={(e) =>
+              setformdata({ ...formdata, strengths: e.target.value })
+            }
+          />
+        </div>
+        <div className="inputs">
+          <label htmlFor="weakness">{t("weakness")}</label>
+          <input
+            className="inputElement"
+            value={formdata.weaknesses}
+            onChange={(e) =>
+              setformdata({ ...formdata, weaknesses: e.target.value })
+            }
+          />
+        </div>
+        <div className="inputs">
+          <label htmlFor="opportunities">{t("opportunities")}</label>
+          <input
+            className="inputElement"
+            value={formdata.opportunities}
+            onChange={(e) =>
+              setformdata({ ...formdata, opportunities: e.target.value })
+            }
+          />
+        </div>
+        <div className="inputs">
+          <label htmlFor="threats">{t("threats")}</label>
+          <input
+            className="inputElement"
+            value={formdata.threats}
+            onChange={(e) =>
+              setformdata({ ...formdata, threats: e.target.value })
+            }
+          />
+        </div>
+
+       
         {toastShow == true && (
-          <span className="badge badge-success">Success</span>
+          <span className="badge badge-success">{t("success")}</span>
         )}
         <button
           className="sitebtnInv my-2"
           style={{ marginBottom: "5rem" }}
           onClick={handleswotsubmit}
         >
-          Submit
+          {t("submit")}
         </button>
       </main>
       <BottomTabs />

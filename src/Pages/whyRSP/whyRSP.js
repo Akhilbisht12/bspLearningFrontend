@@ -1,8 +1,11 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";
+import BottomTabs from "../../components/Layout/BottomTabs";
 import Layout from "../../components/Layout/Layout";
 
-const whyRSP = () => {
+const WhyRSP = () => {
+  const { t } = useTranslation(["misc"]);
   return (
     <Layout>
       <div className="p-3">
@@ -11,14 +14,10 @@ const whyRSP = () => {
             <img
               className="w-100 rounded-3"
               src="https://bsplearningvideos.s3.ap-south-1.amazonaws.com/wall.jpg"
+              alt="cover"
             />
           </div>
-          <div className="p-4 bg-white rounded-3 shadow">
-            We work for the Social Transformation and Economic Emancipation” of
-            the “Bahujan Samaj “, which comprises of the Scheduled Castes (SCs),
-            the Scheduled Tribes (STs), the Other Backward Classes (OBCs) and
-            Religious Minorities.
-          </div>
+          <div className="p-4 bg-white rounded-3 shadow">{t("whyRsp")}</div>
         </div>
         <div className="my-3">
           <ReactPlayer
@@ -30,8 +29,9 @@ const whyRSP = () => {
           />
         </div>
       </div>
+      <BottomTabs />
     </Layout>
   );
 };
 
-export default whyRSP;
+export default WhyRSP;

@@ -16,6 +16,7 @@ import Layout from "../../components/Layout/Layout";
 import authService from "../../ApiServices/auth.service";
 import Loader from "react-loader-spinner";
 import WhyBhujan from "./WhyBhujan";
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(
   CategoryScale,
@@ -28,6 +29,7 @@ ChartJS.register(
 );
 
 const Dashboard = () => {
+  const { t } = useTranslation(["dashboard"]);
   const [coursesWatched, setcoursesWatched] = useState();
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
@@ -53,7 +55,7 @@ const Dashboard = () => {
       labels,
       datasets: [
         {
-          label: "Modules com.",
+          label: "Modules Comp.",
           data: labels.map(() => coursesWatched),
           backgroundColor: "purple",
         },
@@ -63,12 +65,12 @@ const Dashboard = () => {
           backgroundColor: "blue",
         },
         {
-          label: "Surverys Cond.",
+          label: "Surveys Cond.",
           data: labels.map(() => user.swot.length + user.influencers.length),
           backgroundColor: "violet",
         },
         {
-          label: "Influencers data",
+          label: "Influencers Data",
           data: labels.map(() => user.influencers.length),
           backgroundColor: "pink",
         },
@@ -137,7 +139,7 @@ const Dashboard = () => {
               className="p-2 m-1"
               style={{ backgroundColor: "purple" }}
             ></div>
-            <div>Modules Completed</div>
+            <div>{t("modules-comp")}</div>
           </div>
           <div>{coursesWatched}</div>
         </div>
@@ -147,7 +149,7 @@ const Dashboard = () => {
               className="p-2 m-1 bg-"
               style={{ backgroundColor: "blue" }}
             ></div>
-            <div>Village Visited</div>
+            <div>{t("villages-visited")}</div>
           </div>
           <div>{user.swot.length}</div>
         </div>
@@ -157,14 +159,14 @@ const Dashboard = () => {
               className="p-2 m-1 "
               style={{ backgroundColor: "violet" }}
             ></div>
-            <div>Surveys Conducted</div>
+            <div>{t("surveys")}</div>
           </div>
           <div>{user.swot.length + user.influencers.length}</div>
         </div>
         <div className="d-flex justify-content-between px-3 my-2">
           <div className="d-flex justify-content-start align-items-center">
             <div className="p-2 m-1" style={{ backgroundColor: "pink" }}></div>
-            <div>Influencer Data</div>
+            <div> {t("influencer-data")}</div>
           </div>
           <div>{user.influencers.length}</div>
         </div>
@@ -181,7 +183,7 @@ const Dashboard = () => {
               className="p-2 m-1"
               style={{ backgroundColor: "purple" }}
             ></div>
-            <div>Influencers</div>
+            <div>{t("influencers")}</div>
           </div>
           <div>{user.influencers.length}</div>
         </div>
@@ -191,7 +193,7 @@ const Dashboard = () => {
               className="p-2 m-1 bg-"
               style={{ backgroundColor: "blue" }}
             ></div>
-            <div>Participants</div>
+            <div>{t("participants")}</div>
           </div>
           <div>{user.influencers.length}</div>
         </div>
@@ -201,14 +203,14 @@ const Dashboard = () => {
               className="p-2 m-1 "
               style={{ backgroundColor: "violet" }}
             ></div>
-            <div>Swots</div>
+            <div>{t("swots")}</div>
           </div>
           <div>{user.swot.length}</div>
         </div>
         <div className="d-flex justify-content-between px-3 my-2 mb-5">
           <div className="d-flex justify-content-start align-items-center">
             <div className="p-2 m-1" style={{ backgroundColor: "pink" }}></div>
-            <div>Modules</div>
+            <div>{t("modules")}</div>
           </div>
           <div>{coursesWatched}</div>
         </div>

@@ -4,8 +4,10 @@ import AuthServices from "../../ApiServices/auth.service";
 import Layout from "../../components/Layout/Layout";
 import BottomTabs from "../../components/Layout/BottomTabs";
 import "./Forms.css";
+import { useTranslation } from "react-i18next";
 
 const Influencer = () => {
+  const { t } = useTranslation(["forms"]);
   const [toastShow, setToastShow] = useState(false);
   const [formdata, setformdata] = useState({
     name: "",
@@ -58,59 +60,76 @@ const Influencer = () => {
           backgroundColor: "white",
         }}
       >
-        <h3 className="text-center mt-3 mb-5">Neutral Influencers</h3>
-        <input
-          name="name"
-          placeholder="Name"
-          className="siteInput my-2"
-          value={formdata.name}
-          onChange={(e) => setformdata({ ...formdata, name: e.target.value })}
-        />
-        <input
-          className="siteInput my-2"
-          value={formdata.phone}
-          placeholder="Phone"
-          onChange={(e) => setformdata({ ...formdata, phone: e.target.value })}
-        />
-        <input
-          className="siteInput my-2"
-          placeholder="Occupation"
-          value={formdata.occupation}
-          onChange={(e) =>
-            setformdata({ ...formdata, occupation: e.target.value })
-          }
-        />
-        <input
-          className="siteInput my-2"
-          placeholder="District"
-          value={formdata.district}
-          onChange={(e) =>
-            setformdata({ ...formdata, district: e.target.value })
-          }
-        />
-        <input
-          className="siteInput my-2"
-          placeholder="Mandal"
-          value={formdata.mandal}
-          onChange={(e) => setformdata({ ...formdata, mandal: e.target.value })}
-        />
-        <input
-          className="siteInput my-2"
-          placeholder="Village"
-          value={formdata.village}
-          onChange={(e) =>
-            setformdata({ ...formdata, village: e.target.value })
-          }
-        />
+        <h4 className="heading">{t("neutral_title")}</h4>
+        <div className="inputs">
+          <label htmlFor="village">{t("name")}</label>
+          <input
+            name="village"
+            className="inputElement"
+            value={formdata.name}
+            onChange={(e) => setformdata({ ...formdata, name: e.target.value })}
+          />
+        </div>
+        <div className="siteInput my-2">
+          <label htmlFor="village">{t("phone")}</label>
+          <input
+            className="inputElement"
+            value={formdata.phone}
+            onChange={(e) =>
+              setformdata({ ...formdata, phone: e.target.value })
+            }
+          />
+        </div>
+        <div className="inputs">
+          <label htmlFor="village">{t("occupation")}</label>
+          <input
+            className="inputElement"
+            value={formdata.occupation}
+            onChange={(e) =>
+              setformdata({ ...formdata, occupation: e.target.value })
+            }
+          />
+        </div>
+        <div className="inputs">
+          <label htmlFor="village">{t("district")}</label>
+          <input
+            className="inputElement"
+            value={formdata.district}
+            onChange={(e) =>
+              setformdata({ ...formdata, district: e.target.value })
+            }
+          />
+        </div>
+        <div className="inputs">
+          <label htmlFor="village">{t("mandal")}</label>
+          <input
+            className="inputElement"
+            value={formdata.mandal}
+            onChange={(e) =>
+              setformdata({ ...formdata, mandal: e.target.value })
+            }
+          />
+        </div>
+        <div className="inputs">
+          <label htmlFor="village">{t("village")}</label>
+          <input
+            className="inputElement"
+            value={formdata.village}
+            onChange={(e) =>
+              setformdata({ ...formdata, village: e.target.value })
+            }
+          />
+        </div>
+        
         {toastShow == true && (
-          <span className="badge badge-success">Success</span>
+          <span className="badge badge-success">{t("success")}</span>
         )}
         <button
           className="sitebtnInv my-2"
           style={{ marginBottom: "4rem" }}
           onClick={handleinfluencersubmit}
         >
-          Submit
+          {t("submit")}
         </button>
       </main>
       <BottomTabs />

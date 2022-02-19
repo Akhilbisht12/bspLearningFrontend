@@ -5,8 +5,10 @@ import { Link, useHistory } from "react-router-dom";
 import authService from "../../../../ApiServices/auth.service";
 import Alert from "../alert";
 import { districts } from "./districts";
+import { useTranslation } from "react-i18next";
 
 const NewSignup = () => {
+  const { t } = useTranslation(["common"]);
   const history = useHistory();
   const [Loading, setLoading] = useState(false);
   const [districtRef, setdistrictRef] = useState(0);
@@ -93,7 +95,7 @@ const NewSignup = () => {
         style={{ fontFamily: "Gilroy" }}
       >
         <img className="w-25" src={logoBhim} />
-        <p className="text-white my-2"> BHIM BATA APP USER REGISTRATION</p>
+        <p className="my-2"> BHIM BATA APP USER REGISTRATION</p>
         {/* step 1 form */}
         <form
           onSubmit={handleformone}
@@ -103,7 +105,7 @@ const NewSignup = () => {
         >
           <input
             className="siteInput"
-            placeholder="Full Name"
+            placeholder={t("fullname")}
             value={loginInfo.name}
             required
             onChange={(e) => {
@@ -112,7 +114,7 @@ const NewSignup = () => {
           />
           <input
             className="siteInput"
-            placeholder="Email"
+            placeholder={t("email")}
             type="email"
             required
             value={loginInfo.email}
@@ -122,7 +124,7 @@ const NewSignup = () => {
           />
           <input
             className="siteInput"
-            placeholder="Phone"
+            placeholder={t("phone")}
             type="number"
             required
             value={loginInfo.phone}
@@ -131,9 +133,9 @@ const NewSignup = () => {
             }
           />
           <input
-            placeholder="Password"
+            placeholder={t("password")}
             type="password"
-            autoComplete="new-password"
+            autoComplete="confirm-password"
             required
             minLength={5}
             value={loginInfo.password}
@@ -143,7 +145,7 @@ const NewSignup = () => {
             className="siteInput"
           />
           <input
-            placeholder="Confirm Password"
+            placeholder={t("new-password")}
             type="password"
             required
             value={loginInfo.confirmpass}
@@ -154,7 +156,7 @@ const NewSignup = () => {
           />
           <div className="siteInput">
             <label htmlFor="picture" className="m-0">
-              Choose Profile Picture
+              {t("choose-picture")}
             </label>
             <input
               placeholder="Upload Picture"
@@ -170,7 +172,7 @@ const NewSignup = () => {
             />
           </div>
 
-          <input type="submit" value="Next" className="sitebtnInv my-3" />
+          <input type="submit" value={t("next")} className="sitebtnInv my-3" />
         </form>
         {/* Second Form */}
         <form
@@ -180,7 +182,7 @@ const NewSignup = () => {
           } flex-column justify-content-center align-items-center`}
         >
           <input
-            placeholder="Age"
+            placeholder={t("age")}
             type="number"
             value={loginInfo.age}
             required
@@ -208,13 +210,13 @@ const NewSignup = () => {
               setloginInfo({ ...loginInfo, gender: e.target.value });
             }}
           >
-            <option value="">Select Gender</option>
+            <option value="">{t("gender")}</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
           </select>
           <input
-            placeholder="Residence"
+            placeholder={t("residence")}
             type="text"
             required
             value={loginInfo.residence}
@@ -225,7 +227,7 @@ const NewSignup = () => {
           />
           <input
             className="siteInput"
-            placeholder="Community"
+            placeholder={t("community")}
             type="text"
             required
             value={loginInfo.community}
@@ -235,7 +237,7 @@ const NewSignup = () => {
           />
           <input
             className="siteInput"
-            placeholder="Education"
+            placeholder={t("education")}
             type="text"
             required
             value={loginInfo.education}
@@ -245,7 +247,7 @@ const NewSignup = () => {
           />
           <input
             className="siteInput"
-            placeholder="Occupation"
+            placeholder={t("occupation")}
             type="text"
             required
             value={loginInfo.occupation}
@@ -255,9 +257,9 @@ const NewSignup = () => {
           />
           <div className="d-flex justify-content-center align-items-center">
             <button onClick={handleformback} style={prevBtn}>
-              Back
+              {t("back")}
             </button>
-            <input type="submit" value="Next" style={prevBtn} />
+            <input type="submit" value={t("next")} style={prevBtn} />
           </div>
         </form>
 
@@ -291,13 +293,13 @@ const NewSignup = () => {
               }
             }}
           >
-            <option value="">Select District</option>
+            <option value="">{t("select-district")}</option>
             {districts.map((item, i) => {
               return <option value={i}>{item.name}</option>;
             })}
           </select>
           <input
-            placeholder="Mandal"
+            placeholder={t("mandal")}
             type="text"
             required
             value={loginInfo.mandal}
@@ -307,7 +309,7 @@ const NewSignup = () => {
             className="siteInput"
           />
           <input
-            placeholder="Village"
+            placeholder={t("village")}
             type="text"
             required
             value={loginInfo.village}
@@ -326,7 +328,7 @@ const NewSignup = () => {
               });
             }}
           >
-            <option value="">Select Parliamentary Constituency</option>
+            <option value="">{t("SPC")}</option>
             {districts[districtRef].cont.map((item, i) => {
               return <option value={i}>{item.name}</option>;
             })}
@@ -361,7 +363,7 @@ const NewSignup = () => {
               });
             }}
           >
-            <option value="">Select Assembly Constituency</option>
+            <option value="">{t("SAC")}</option>
             {districts[districtRef].cont.map((item, i) => {
               return <option value={i}>{item.name}</option>;
             })}
@@ -374,13 +376,13 @@ const NewSignup = () => {
           <input
             disabled={Loading}
             type="submit"
-            value="Create Account"
+            value={t("create-account")}
             className="sitebtnInv my-3"
           />
         </form>
 
         <p className="my-4">
-          Already have an account? <Link to="/login">Login</Link>
+          {t("already-acc")}? <Link to="/login">{t("login")}</Link>
         </p>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import Login from "./Pages/Auth/Forms/Login/Login";
@@ -26,86 +26,90 @@ import NewSignup from "./Pages/Auth/Forms/Signup/NewSignup";
 import FormPage from "./Pages/forms/FormPage";
 import Influencer from "./Pages/forms/Influencer";
 import Meetings from "./Pages/meetings/Meetings";
-import whyRSP from "./Pages/whyRSP/whyRSP";
 import Badges from "./Pages/Badges/Badges";
 import OnBoarding from "./Pages/OnBoarding/OnBoarding";
 import "./App.css";
 import WhyBahujan from "./Pages/whyRSP/WhyBahujan";
 import NotFound from "./Pages/NotFound";
+import LanguageSelector from "./Pages/OnBoarding/LanguageSelector";
+import WhyRSP from "./Pages/whyRSP/WhyRSP";
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/signupOtp" component={SignUpwithPhone} />
-          {/* <Route path="/signup" exact component={Signup} /> */}
-          <Route path="/login" component={NewLogin} />
-          <Route path="/signup/otp" component={Otp} />
-          <Route path="/forgotpasswordemail" component={EmailVerify} />
-          <Route path="/ForgotPasswordotp" component={ForgotPasswordotp} />
-          <Route path="/ResetPassword" component={ResetPassword} />
-          <Route path="/signup" component={NewSignup} />
-          <Route path="/onboarding" component={OnBoarding} />
-          <Route path="/forms" component={FormPage} />
+      <Suspense fallback="Loading....">
+        <BrowserRouter>
+          <Switch>
+            <Route path="/signupOtp" component={SignUpwithPhone} />
+            {/* <Route path="/signup" exact component={Signup} /> */}
+            <Route path="/login" component={NewLogin} />
+            <Route path="/signup/otp" component={Otp} />
+            <Route path="/forgotpasswordemail" component={EmailVerify} />
+            <Route path="/ForgotPasswordotp" component={ForgotPasswordotp} />
+            <Route path="/ResetPassword" component={ResetPassword} />
+            <Route path="/signup" component={NewSignup} />
+            <Route path="/onboarding" component={OnBoarding} />
+            <Route path="/forms" component={FormPage} />
 
-          <Route path="/dashboard" exact component={Dashboard} />
-          <Route
-            path="/home/:CourseName"
-            exact
-            render={(props) => (
-              <Homepage key={props.location.pathname} {...props} />
+            <Route path="/dashboard" exact component={Dashboard} />
+            <Route
+              path="/home/:CourseName"
+              exact
+              render={(props) => (
+                <Homepage key={props.location.pathname} {...props} />
+              )}
+            />
+            <Route
+              path="/home/Interest/Preference"
+              exact
+              component={Preference}
+            />
+
+            <Route
+              path="/course/:Course/:Courseid"
+              exact
+              render={(props) => (
+                <CoursePage key={props.location.pathname} {...props} />
+              )}
+            />
+
+            <Route path="/Cart" component={Cart} />
+
+            <Route
+              path="/stripe/:CourseLink"
+              exact
+              render={(props) => (
+                <Stripe key={props.location.pathname} {...props} />
+              )}
+            />
+            <Route path="/swot" component={Swot} />
+            <Route path="/influencer" component={Influencer} />
+            <Route path="/Teacher" component={TeacherPage} />
+            <Route
+              path="/TeacherVideos"
+              render={(props) => <TeacherVideos {...props} />}
+            />
+
+            <Route path="/TeacherHome" component={TeacherHomePage} />
+            <Route path="/TeacherEdit" component={TeacherEdit} />
+            <Route path="/meetings" component={Meetings} />
+            <Route path="/whyrsp" component={WhyRSP} />
+            <Route path="/language" component={LanguageSelector} />
+            <Route path="/whybahujan" component={WhyBahujan} />
+            <Route path="/badges" component={Badges} />
+            <Route
+              path="/"
+              component={localStorage.getItem("user") ? Dashboard : NewLogin}
+            />
+            <Route path="*" exact component={NotFound} />
+            {localStorage.getItem("user") ? (
+              <Redirect to="/dashboard" />
+            ) : (
+              <Redirect to="/login" />
             )}
-          />
-          <Route
-            path="/home/Interest/Preference"
-            exact
-            component={Preference}
-          />
-
-          <Route
-            path="/course/:Course/:Courseid"
-            exact
-            render={(props) => (
-              <CoursePage key={props.location.pathname} {...props} />
-            )}
-          />
-
-          <Route path="/Cart" component={Cart} />
-
-          <Route
-            path="/stripe/:CourseLink"
-            exact
-            render={(props) => (
-              <Stripe key={props.location.pathname} {...props} />
-            )}
-          />
-          <Route path="/swot" component={Swot} />
-          <Route path="/influencer" component={Influencer} />
-          <Route path="/Teacher" component={TeacherPage} />
-          <Route
-            path="/TeacherVideos"
-            render={(props) => <TeacherVideos {...props} />}
-          />
-
-          <Route path="/TeacherHome" component={TeacherHomePage} />
-          <Route path="/TeacherEdit" component={TeacherEdit} />
-          <Route path="/meetings" component={Meetings} />
-          <Route path="/whyrsp" component={whyRSP} />
-          <Route path="/whybahujan" component={WhyBahujan} />
-          <Route path="/badges" component={Badges} />
-          <Route
-            path="/"
-            component={localStorage.getItem("user") ? Dashboard : NewLogin}
-          />
-          <Route path="*" exact component={NotFound} />
-          {localStorage.getItem("user") ? (
-            <Redirect to="/dashboard" />
-          ) : (
-            <Redirect to="/login" />
-          )}
-          {/* <Redirect to="/home/all" /> */}
-        </Switch>
-      </BrowserRouter>
+            {/* <Redirect to="/home/all" /> */}
+          </Switch>
+        </BrowserRouter>
+      </Suspense>
     );
   }
 }
