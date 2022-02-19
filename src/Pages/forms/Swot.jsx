@@ -18,6 +18,18 @@ const Swot = () => {
   });
 
   const handleswotsubmit = () => {
+    if (
+      !(
+        formdata.village &&
+        formdata.strengths &&
+        formdata.weaknesses &&
+        formdata.opportunities &&
+        formdata.threats
+      )
+    ) {
+      alert("Please fill all fields");
+      return;
+    }
     const user = localStorage.getItem("userId");
     AuthServices.SwotForm(formdata, user);
     setformdata({
@@ -35,17 +47,15 @@ const Swot = () => {
   const formElementsArray = [];
 
   return (
-    <Layout>
+    <Layout className="w-100">
       <main
+        className="w-100 d-flex flex-column align-items-center"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          padding: "1rem",
-          alignItems: "center",
           height: "auto",
-          background: "#15181fc",
+          backgroundColor: "white",
         }}
       >
+
         <h4 className="heading">{t("title")}</h4>
         <div className="inputs">
           <label htmlFor="village">{t("village")}</label>
@@ -98,11 +108,13 @@ const Swot = () => {
             }
           />
         </div>
+
+       
         {toastShow == true && (
           <span className="badge badge-success">{t("success")}</span>
         )}
         <button
-          className="formBtn"
+          className="sitebtnInv my-2"
           style={{ marginBottom: "5rem" }}
           onClick={handleswotsubmit}
         >

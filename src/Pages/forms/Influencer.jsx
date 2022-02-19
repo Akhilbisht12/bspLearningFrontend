@@ -19,6 +19,19 @@ const Influencer = () => {
   });
 
   const handleinfluencersubmit = () => {
+    if (
+      !(
+        formdata.name &&
+        formdata.phone &&
+        formdata.occupation &&
+        formdata.district &&
+        formdata.mandal &&
+        formdata.village
+      )
+    ) {
+      alert("Please fill out all fields");
+      return;
+    }
     const user = localStorage.getItem("userId");
     console.log(user);
     AuthServices.InfluencerForm(formdata, user);
@@ -42,10 +55,9 @@ const Influencer = () => {
         style={{
           display: "flex",
           flexDirection: "column",
-          padding: "1rem",
           height: "auto",
           alignItems: "center",
-          background: "#15181fc",
+          backgroundColor: "white",
         }}
       >
         <h4 className="heading">{t("neutral_title")}</h4>
@@ -58,7 +70,7 @@ const Influencer = () => {
             onChange={(e) => setformdata({ ...formdata, name: e.target.value })}
           />
         </div>
-        <div className="inputs">
+        <div className="siteInput my-2">
           <label htmlFor="village">{t("phone")}</label>
           <input
             className="inputElement"
@@ -108,11 +120,12 @@ const Influencer = () => {
             }
           />
         </div>
+        
         {toastShow == true && (
           <span className="badge badge-success">{t("success")}</span>
         )}
         <button
-          className="formBtn"
+          className="sitebtnInv my-2"
           style={{ marginBottom: "4rem" }}
           onClick={handleinfluencersubmit}
         >

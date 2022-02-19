@@ -54,12 +54,19 @@ const Drawer = ({ closeDrawer, logout }) => {
           <span className="mx-2 fs-3"> Modules</span>
         </div>
       </Link> */}
-        <Link style={{ textDecoration: "none" }} to="/forms">
+        <Link to="/whyrsp">
           <div className="d-flex align-items-center">
-            <FaBookOpen size={25} color="black" />
-            <span className="mx-2 fs-3"> Your Forms</span>
+            <FaPaperPlane size={25} color="black" />
+            <span className="mx-2 fs-3"> Why RSP?</span>
           </div>
         </Link>
+        <Link to="/whybahujan">
+          <div className="d-flex align-items-center">
+            <FaPaperPlane size={25} color="black" />
+            <span className="mx-2 fs-3"> Why Bahujan?</span>
+          </div>
+        </Link>
+
         {/* <Link to="/badges">
         <div className="d-flex align-items-center">
           <FaAward size={25} color="black" />
@@ -72,16 +79,10 @@ const Drawer = ({ closeDrawer, logout }) => {
             <span className="mx-2 fs-3"> Meeting Updates</span>
           </div>
         </Link>
-        <Link to="/whyrsp">
+        <Link style={{ textDecoration: "none" }} to="/forms">
           <div className="d-flex align-items-center">
-            <FaPaperPlane size={25} color="black" />
-            <span className="mx-2 fs-3"> Why RSP?</span>
-          </div>
-        </Link>
-        <Link to="/whybahujan">
-          <div className="d-flex align-items-center">
-            <FaPaperPlane size={25} color="black" />
-            <span className="mx-2 fs-3"> Why Bahujan?</span>
+            <FaBookOpen size={25} color="black" />
+            <span className="mx-2 fs-3"> Your Forms</span>
           </div>
         </Link>
         <div className="d-flex align-items-center" onClick={logout}>

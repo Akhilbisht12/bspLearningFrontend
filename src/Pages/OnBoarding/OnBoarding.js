@@ -24,10 +24,6 @@ const OnBoarding = () => {
         image: ob1,
       },
       {
-        text: "Ambedkar’s vision for India is to cast out economic challenges and socio-cultural oppressions of the downtrodden and the marginalised communities but not against any religion or community as a whole.",
-        image: ob2,
-      },
-      {
         text: "To make Babasaheb’s dream of social justice a reality and to eradicate all forms of discrimination from our society, as responsible citizens of this country, let’s embark on the historic journey of this decade ‘BHIM BATA’",
         image: ob5,
       },
@@ -56,10 +52,6 @@ const OnBoarding = () => {
       {
         text: " డాక్టర్‌ బాబాసాహెబ్‌ అంబేద్కర్‌ గారి భావజాలాన్ని కేవలం దళితులకే పరిమితం చేయడం సరికాదు. ",
         image: ob1,
-      },
-      {
-        text: "భారతదేశంలో అణగారిన, అట్టడుగు వర్గాల ఆర్థిక సవాళ్లను మరియు సామాజిక-సాంస్కఅతిక అణచివేతలను తరిమికొట్టాలనేదే  అంబేద్కర్‌ గారి ఆలోచన. అంతే కానీ వారు ఏ మతానికి లేదా వర్గానికీ  వ్యతిరేకంగా  కాదు.",
-        image: ob2,
       },
       {
         text: "సమాజంలో ఉన్న వివిధ రకాల వివక్షలకు వ్యతిరేకంగా గళం విప్పి, సామాజిక-ఆర్థిక శ్రేయస్సు హక్కులను సాధించుకోవడమే  ‘BHIM-BATA’ లక్ష్యం.   ‘‘మీరు - మేము’’ మనందరం  కలిసి  ‘BHIM-BATA’ వేదికగా  ఈ దశాబ్దపు చారిత్రాత్మక ప్రయాణాన్ని ప్రారంభించడానికి అడుగులేద్దాం రండి.",
@@ -91,10 +83,7 @@ const OnBoarding = () => {
         text: "वह एक दूरदर्शी व्यक्ति थे जो स्वतंत्रता, समानता और बंधुत्व के माध्यम से सामाजिक न्याय प्राप्त करने में विश्वास करते थे। कई दशकों के बाद भी, उनके कार्य और आदर्श आधुनिक भारत में आज भी प्रासंगिक हैं और निस्संदेह हमारे राष्ट्र निर्माण के प्रयास में एक मूल्यवान उपकरण हैं।",
         image: ob1,
       },
-      {
-        text: "भारत के लिए अम्बेडकर की दृष्टि दलित और हाशिए के समुदायों की आर्थिक चुनौतियों और सामाजिक-सांस्कृतिक उत्पीड़न को खत्म करना है, लेकिन किसी भी धर्म या समुदाय के खिलाफ नहीं है।",
-        image: ob2,
-      },
+
       {
         text: "बाबासाहेब के सामाजिक न्याय के सपने को साकार करने के लिए और हमारे समाज से सभी प्रकार के भेदभाव को मिटाने के लिए, इस देश के जिम्मेदार नागरिक के रूप में, आइए इस दशक की ऐतिहासिक यात्रा 'भीम बाटा' की शुरुआत करें।",
         image: ob5,
@@ -202,7 +191,7 @@ const OnBoarding = () => {
       return <LanguageSelect />;
     case 2:
       return <OnboardOne />;
-    case 10:
+    case 9:
       return <FinalScreen />;
     default:
       return <OnboardRest />;

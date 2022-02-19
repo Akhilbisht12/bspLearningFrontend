@@ -15,9 +15,7 @@ const Layout = (props) => {
   ) {
     return (
       <div>
-        <main style={{ background: "#00005c" }} className="Content">
-          {props.children}
-        </main>
+        <main className="Content">{props.children}</main>
       </div>
     );
   } else {
