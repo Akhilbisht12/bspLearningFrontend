@@ -15,7 +15,7 @@ const LanguageSelector = () => {
   const handleLang = () => {
     localStorage.setItem("Lang", lang);
     i18next.changeLanguage(lang);
-    history.push("/signup");
+    history.push("/onboarding");
   };
   return (
     <div className="min100vh d-flex flex-column align-items-center">

@@ -8,16 +8,21 @@ const WhyRSP = () => {
   const { t } = useTranslation(["misc"]);
   return (
     <Layout>
-      <div className="p-3">
+      <div className="px-3 py-5">
         <div className="">
-          <div>
-            <img
-              className="w-100 rounded-3"
-              src="https://bsplearningvideos.s3.ap-south-1.amazonaws.com/wall.jpg"
-              alt="cover"
-            />
+          <div className="p-4 bg-white rounded-3 shadow">
+            <p>{t("whyRsp1")}</p>
+            <p>{t("whyRsp2")}</p>
+            <p>{t("whyRsp3")}</p>
+            <p>{t("whyRsphead")}</p>
+            <ol>
+              <li>{t("p1")}</li>
+              <li>{t("p2")}</li>
+              <li>{t("p3")}</li>
+              <li>{t("p4")}</li>
+              <li>{t("p5")}</li>
+            </ol>
           </div>
-          <div className="p-4 bg-white rounded-3 shadow">{t("whyRsp")}</div>
         </div>
         <div className="my-3">
           <ReactPlayer
@@ -25,7 +30,7 @@ const WhyRSP = () => {
             width="100%"
             height="auto"
             controls={true}
-            url="https://bsplearningvideos.s3.ap-south-1.amazonaws.com/Gandhi+Jayanti.mp4"
+            url="https://upgrate.in/wp-content/uploads/2022/02/Final_WhyRSP_Telugu.mp4"
           />
         </div>
       </div>

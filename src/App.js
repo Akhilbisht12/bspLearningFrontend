@@ -98,13 +98,15 @@ class App extends Component {
             <Route path="/badges" component={Badges} />
             <Route
               path="/"
-              component={localStorage.getItem("user") ? Dashboard : NewLogin}
+              component={
+                localStorage.getItem("user") ? Dashboard : LanguageSelector
+              }
             />
             <Route path="*" exact component={NotFound} />
             {localStorage.getItem("user") ? (
               <Redirect to="/dashboard" />
             ) : (
-              <Redirect to="/login" />
+              <Redirect to="/language" />
             )}
             {/* <Redirect to="/home/all" /> */}
           </Switch>

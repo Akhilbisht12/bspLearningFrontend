@@ -145,7 +145,7 @@ const NewSignup = () => {
             className="siteInput"
           />
           <input
-            placeholder={t("new-password")}
+            placeholder={t("confirm-password")}
             type="password"
             required
             value={loginInfo.confirmpass}

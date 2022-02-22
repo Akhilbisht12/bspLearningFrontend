@@ -9,7 +9,7 @@ const WhyBahujan = () => {
 
   return (
     <Layout>
-      <div className="d-flex flex-column align-items-center my-5">
+      <div className="d-flex flex-column align-items-center my-5 py-5">
         <h4>{t("title")}</h4>
         <div className="text-wrap text-center p-4">{t("whyBhaujan")}</div>
         <ReactPlayer
@@ -17,7 +17,7 @@ const WhyBahujan = () => {
           width="100%"
           height="auto"
           controls={true}
-          url="https://bsplearningvideos.s3.ap-south-1.amazonaws.com/Gandhi+Jayanti.mp4"
+          url="https://upgrate.in/wp-content/uploads/2022/02/Final_WhyRSP_Telugu.mp4"
         />
       </div>
       <BottomTabs />

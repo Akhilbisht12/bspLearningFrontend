@@ -11,7 +11,10 @@ import {
   FaWindowClose,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 const Drawer = ({ closeDrawer, logout }) => {
+  const { t } = useTranslation(["common"]);
   const profile = localStorage.getItem("profile");
   const userName = localStorage.getItem("userName");
   const userEmail = localStorage.getItem("email");
@@ -45,7 +48,7 @@ const Drawer = ({ closeDrawer, logout }) => {
         <Link style={{ textDecoration: "none" }} to="/dashboard">
           <div className="d-flex align-items-center">
             <FaDesktop size={25} color="black" />
-            <span className="mx-2 fs-3"> Your Dashboard</span>
+            <span className="mx-2 fs-3">{t("dashboard")}</span>
           </div>
         </Link>
         {/* <Link style={{ textDecoration: "none" }} to="/home/all">
@@ -57,13 +60,13 @@ const Drawer = ({ closeDrawer, logout }) => {
         <Link to="/whyrsp">
           <div className="d-flex align-items-center">
             <FaPaperPlane size={25} color="black" />
-            <span className="mx-2 fs-3"> Why RSP?</span>
+            <span className="mx-2 fs-3">{t("whyrsp")}</span>
           </div>
         </Link>
         <Link to="/whybahujan">
           <div className="d-flex align-items-center">
             <FaPaperPlane size={25} color="black" />
-            <span className="mx-2 fs-3"> Why Bahujan?</span>
+            <span className="mx-2 fs-3">{t("whybahujan")}</span>
           </div>
         </Link>
 
@@ -76,18 +79,18 @@ const Drawer = ({ closeDrawer, logout }) => {
         <Link to="/meetings">
           <div className="d-flex align-items-center">
             <FaBullhorn size={25} color="black" />
-            <span className="mx-2 fs-3"> Meeting Updates</span>
+            <span className="mx-2 fs-3">{t("meeting")}</span>
           </div>
         </Link>
         <Link style={{ textDecoration: "none" }} to="/forms">
           <div className="d-flex align-items-center">
             <FaBookOpen size={25} color="black" />
-            <span className="mx-2 fs-3"> Your Forms</span>
+            <span className="mx-2 fs-3">{t("forms")}</span>
           </div>
         </Link>
         <div className="d-flex align-items-center" onClick={logout}>
           <FaSignOutAlt size={25} color="black" />
-          <span className="mx-2 fs-3"> Sign Out</span>
+          <span className="mx-2 fs-3">{t("logout")}</span>
         </div>
       </div>
     </div>
