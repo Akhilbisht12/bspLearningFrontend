@@ -7,7 +7,7 @@
   "phone": "Phone",
   "or": "Or",
   "password": "Password",
-  "confirm-password":"Confirm Password",
+  "confirm-password": "Confirm Password",
   "register-here": "Register Here",
   "fullname": "Fullname",
   "choose-picture": "Choose Profile Picture",
@@ -27,6 +27,12 @@
   "SAC": "Select Assembly Constituency",
   "create-account": "Create Account",
   "new-user": "New User",
-  "dasboard":"Dashboard",
-  ""
+  "dashboard": "Dashboard",
+  "whyrsp": "Why RSP",
+  "whybahujan": "Why Bahujan",
+  "meeting": "Meeting Updates",
+  "forms": "Your Forms",
+  "logout": "Log Out",
+  "analysis form": "SWOT ANALYSIS FORM",
+  "neutral form": "NEUTRAL INFLUENCER FORM"
 }

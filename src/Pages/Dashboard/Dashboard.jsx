@@ -55,11 +55,6 @@ const Dashboard = () => {
       labels,
       datasets: [
         {
-          label: "Modules Comp.",
-          data: labels.map(() => coursesWatched),
-          backgroundColor: "purple",
-        },
-        {
           label: "Villages Vis.",
           data: labels.map(() => user.swot.length),
           backgroundColor: "blue",
@@ -77,7 +72,7 @@ const Dashboard = () => {
       ],
     };
     pieData = {
-      labels: ["Influencer", "Participants", "SWOT", "Modules"],
+      labels: ["Influencer", "Participants", "SWOT"],
       datasets: [
         {
           label: "# of Votes",
@@ -85,7 +80,6 @@ const Dashboard = () => {
             user.influencers.length,
             user.influencers.length,
             user.swot.length,
-            coursesWatched,
           ],
           backgroundColor: ["purple", "blue", "violet", "pink"],
           borderColor: ["white", "white", "white", "white"],
@@ -133,7 +127,7 @@ const Dashboard = () => {
       <Bar height="250px" options={options} data={data} />
       {/* modulres written data */}
       <div className="my-4 pb-5">
-        <div className="d-flex justify-content-between px-3 my-2">
+        {/* <div className="d-flex justify-content-between px-3 my-2">
           <div className="d-flex justify-content-start align-items-center">
             <div
               className="p-2 m-1"
@@ -142,7 +136,7 @@ const Dashboard = () => {
             <div>{t("modules-comp")}</div>
           </div>
           <div>{coursesWatched}</div>
-        </div>
+        </div> */}
         <div className="d-flex justify-content-between px-3 my-2">
           <div className="d-flex justify-content-start align-items-center">
             <div
@@ -207,13 +201,13 @@ const Dashboard = () => {
           </div>
           <div>{user.swot.length}</div>
         </div>
-        <div className="d-flex justify-content-between px-3 my-2 mb-5">
+        {/* <div className="d-flex justify-content-between px-3 my-2 mb-5">
           <div className="d-flex justify-content-start align-items-center">
             <div className="p-2 m-1" style={{ backgroundColor: "pink" }}></div>
             <div>{t("modules")}</div>
           </div>
           <div>{coursesWatched}</div>
-        </div>
+        </div> */}
       </div>
       <BottomTabs />
     </Layout>

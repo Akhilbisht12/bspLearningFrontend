@@ -119,7 +119,7 @@ const NewLogin = () => {
         </form>
         <div className="mt-5 d-flex flex-column align-items-center justify-content-center">
           <p className="m-0">{t("new-user")}</p>
-          <Link className="text-center fw-bold" style={styles} to="/onboarding">
+          <Link className="text-center fw-bold" style={styles} to="/signup">
             {t("register-here")}
           </Link>
         </div>

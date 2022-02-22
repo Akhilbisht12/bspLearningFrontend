@@ -60,67 +60,50 @@ const Influencer = () => {
           backgroundColor: "white",
         }}
       >
-        <h4 className="heading">{t("neutral_title")}</h4>
-        <div className="inputs">
-          <label htmlFor="village">{t("name")}</label>
-          <input
-            name="village"
-            className="inputElement"
-            value={formdata.name}
-            onChange={(e) => setformdata({ ...formdata, name: e.target.value })}
-          />
-        </div>
-        <div className="siteInput my-2">
-          <label htmlFor="village">{t("phone")}</label>
-          <input
-            className="inputElement"
-            value={formdata.phone}
-            onChange={(e) =>
-              setformdata({ ...formdata, phone: e.target.value })
-            }
-          />
-        </div>
-        <div className="inputs">
-          <label htmlFor="village">{t("occupation")}</label>
-          <input
-            className="inputElement"
-            value={formdata.occupation}
-            onChange={(e) =>
-              setformdata({ ...formdata, occupation: e.target.value })
-            }
-          />
-        </div>
-        <div className="inputs">
-          <label htmlFor="village">{t("district")}</label>
-          <input
-            className="inputElement"
-            value={formdata.district}
-            onChange={(e) =>
-              setformdata({ ...formdata, district: e.target.value })
-            }
-          />
-        </div>
-        <div className="inputs">
-          <label htmlFor="village">{t("mandal")}</label>
-          <input
-            className="inputElement"
-            value={formdata.mandal}
-            onChange={(e) =>
-              setformdata({ ...formdata, mandal: e.target.value })
-            }
-          />
-        </div>
-        <div className="inputs">
-          <label htmlFor="village">{t("village")}</label>
-          <input
-            className="inputElement"
-            value={formdata.village}
-            onChange={(e) =>
-              setformdata({ ...formdata, village: e.target.value })
-            }
-          />
-        </div>
-        
+        <h3 className="text-center mt-3 mb-5">{t("neutral form")}</h3>
+        <input
+          name="name"
+          placeholder={t("name")}
+          className="siteInput my-2"
+          value={formdata.name}
+          onChange={(e) => setformdata({ ...formdata, name: e.target.value })}
+        />
+        <input
+          className="siteInput my-2"
+          value={formdata.phone}
+          placeholder={t("phone")}
+          onChange={(e) => setformdata({ ...formdata, phone: e.target.value })}
+        />
+        <input
+          className="siteInput my-2"
+          placeholder={t("occupation")}
+          value={formdata.occupation}
+          onChange={(e) =>
+            setformdata({ ...formdata, occupation: e.target.value })
+          }
+        />
+        <input
+          className="siteInput my-2"
+          placeholder={t("district")}
+          value={formdata.district}
+          onChange={(e) =>
+            setformdata({ ...formdata, district: e.target.value })
+          }
+        />
+        <input
+          className="siteInput my-2"
+          placeholder={t("mandal")}
+          value={formdata.mandal}
+          onChange={(e) => setformdata({ ...formdata, mandal: e.target.value })}
+        />
+        <input
+          className="siteInput my-2"
+          placeholder={t("village")}
+          value={formdata.village}
+          onChange={(e) =>
+            setformdata({ ...formdata, village: e.target.value })
+          }
+        />
         {toastShow == true && (
           <span className="badge badge-success">{t("success")}</span>
         )}

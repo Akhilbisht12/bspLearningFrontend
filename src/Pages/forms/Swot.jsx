@@ -55,61 +55,48 @@ const Swot = () => {
           backgroundColor: "white",
         }}
       >
-
-        <h4 className="heading">{t("title")}</h4>
-        <div className="inputs">
-          <label htmlFor="village">{t("village")}</label>
-          <input
-            name="village"
-            className="inputElement"
-            value={formdata.village}
-            onChange={(e) =>
-              setformdata({ ...formdata, village: e.target.value })
-            }
-          />
-        </div>
-        <div className="inputs">
-          <label htmlFor="strength">{t("strength")}</label>
-          <input
-            className="inputElement"
-            value={formdata.strengths}
-            onChange={(e) =>
-              setformdata({ ...formdata, strengths: e.target.value })
-            }
-          />
-        </div>
-        <div className="inputs">
-          <label htmlFor="weakness">{t("weakness")}</label>
-          <input
-            className="inputElement"
-            value={formdata.weaknesses}
-            onChange={(e) =>
-              setformdata({ ...formdata, weaknesses: e.target.value })
-            }
-          />
-        </div>
-        <div className="inputs">
-          <label htmlFor="opportunities">{t("opportunities")}</label>
-          <input
-            className="inputElement"
-            value={formdata.opportunities}
-            onChange={(e) =>
-              setformdata({ ...formdata, opportunities: e.target.value })
-            }
-          />
-        </div>
-        <div className="inputs">
-          <label htmlFor="threats">{t("threats")}</label>
-          <input
-            className="inputElement"
-            value={formdata.threats}
-            onChange={(e) =>
-              setformdata({ ...formdata, threats: e.target.value })
-            }
-          />
-        </div>
-
-       
+        <h4 className="text-center mb-5 mt-3">{t("analysis form")}</h4>
+        <input
+          name="village"
+          placeholder={t("village")}
+          className="siteInput my-2"
+          value={formdata.village}
+          onChange={(e) =>
+            setformdata({ ...formdata, village: e.target.value })
+          }
+        />
+        <input
+          className="siteInput my-2"
+          placeholder={t("strength")}
+          value={formdata.strengths}
+          onChange={(e) =>
+            setformdata({ ...formdata, strengths: e.target.value })
+          }
+        />
+        <input
+          className="siteInput my-2"
+          placeholder={t("weakness")}
+          value={formdata.weaknesses}
+          onChange={(e) =>
+            setformdata({ ...formdata, weaknesses: e.target.value })
+          }
+        />
+        <input
+          className="siteInput my-2"
+          value={formdata.opportunities}
+          placeholder={t("opportunities")}
+          onChange={(e) =>
+            setformdata({ ...formdata, opportunities: e.target.value })
+          }
+        />
+        <input
+          className="siteInput my-2"
+          placeholder={t("threats")}
+          value={formdata.threats}
+          onChange={(e) =>
+            setformdata({ ...formdata, threats: e.target.value })
+          }
+        />
         {toastShow == true && (
           <span className="badge badge-success">{t("success")}</span>
         )}

@@ -18,8 +18,10 @@ import {
   FaPaperPlane,
   FaWindowClose,
 } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const { t } = useTranslation(["common"]);
   const profile = localStorage.getItem("profile");
   const [isLogin, setLogin] = React.useState(false);
   const history = useHistory();
@@ -27,26 +29,26 @@ const Navbar = () => {
   // const [drawerClose, setdrawerClose] = useState(false);
 
   let locationPage = useLocation();
-  let screenName = "Your Dashbaord";
+  let screenName = `${t("dashboard")}`;
 
   if (locationPage.pathname === "/home/all") {
-    screenName = "Modules";
+    screenName = `${t("module")}`;
   } else if (locationPage.pathname === "/forms") {
-    screenName = "Forms";
+    screenName = `${t("forms")}`;
   } else if (locationPage.pathname === "/swot") {
-    screenName = "SWOT Analysis";
+    screenName = `${t("analysis form")}`;
   } else if (locationPage.pathname == "/influencer") {
-    screenName = "Neutral Influencer";
+    screenName = `${t("neutral form")}`;
   } else if (locationPage.pathname == "/badges") {
     screenName = "Your Badges";
   } else if (locationPage.pathname == "/whyrsp") {
-    screenName = "Why RSP";
+    screenName = `${t("whyrsp")}`;
   } else if (locationPage.pathname == "/meetings") {
-    screenName = "Meeting Updates";
+    screenName = `${t("meetings")}`;
   } else if (locationPage.pathname == "/course") {
     screenName = "Module";
   } else if (locationPage.pathname == "/whybahujan") {
-    screenName = "Why Bahujan";
+    screenName = `${t("whybahujan")}`;
   }
 
   const handleMenu = () => {
